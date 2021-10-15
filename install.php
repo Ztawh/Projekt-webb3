@@ -48,8 +48,7 @@ CREATE TABLE Websites(
     id INT(11) PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100),
     url VARCHAR(300),
-    description VARCHAR(1000),
-    thumbnail VARCHAR(300)
+    description VARCHAR(1000)
 );";
 
 // Skickar queryn till databasen

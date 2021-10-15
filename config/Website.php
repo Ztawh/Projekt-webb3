@@ -46,7 +46,7 @@ class Website
     }
 
     // Lägg till en webbsida
-    public function addWebsite($title, $url, $description, $thumbnail)
+    public function addWebsite($title, $url, $description)
     {
         // Kollar om webbsidan redan finns
         $sql = "SELECT * FROM Websites WHERE url='$url';";
@@ -70,7 +70,7 @@ class Website
             // $syllabus = htmlspecialchars($syllabus);
 
             // Lägg till webbsida
-            $sql = "INSERT INTO Websites (title, url, description, thumbnail) VALUES ('$title', '$url', '$description', '$thumbnail');";
+            $sql = "INSERT INTO Websites (title, url, description) VALUES ('$title', '$url', '$description');";
             $result = $this->db->query($sql);
         }
 
@@ -95,7 +95,7 @@ class Website
     }
 
     // Redigera en webbsida
-    public function editWebsite($id, $title, $url, $description, $thumbnail)
+    public function editWebsite($id, $title, $url, $description)
     {
         // Kollar om en webbsida med detta id finns
         $sql = "SELECT * FROM Websites WHERE id=$id;";
@@ -116,7 +116,7 @@ class Website
             // $syllabus = htmlspecialchars($syllabus);
 
             // Uppdatera webbsida
-            $sql = "UPDATE Websites SET title='$title', url='$url', description='$description', thumbnail='$thumbnail' WHERE id=$id;";
+            $sql = "UPDATE Websites SET title='$title', url='$url', description='$description' WHERE id=$id;";
             $result = $this->db->query($sql);
             return $result;
         } else {

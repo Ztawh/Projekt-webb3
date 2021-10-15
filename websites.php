@@ -57,7 +57,7 @@ switch ($method) {
         $data = json_decode(file_get_contents("php://input"));
 
         // Om webbsidan kunde läggas till, true. 
-        if ($webObj->addWebsite($data->title, $data->url, $data->description, $data->thumbnail)) {
+        if ($webObj->addWebsite($data->title, $data->url, $data->description)) {
             http_response_code(201); //Created
             $response = array("message" => "Created");
         } else { // Om webbsidan redan finns
@@ -75,7 +75,7 @@ switch ($method) {
             $data = json_decode(file_get_contents("php://input"));
 
             // Om jobbet kunde redigeras
-            if ($webObj->editWebsite($id, $data->title, $data->url, $data->description, $data->thumbnail)) {
+            if ($webObj->editWebsite($id, $data->title, $data->url, $data->description)) {
                 http_response_code(200);
                 $response = array("message" => "Website with id=$id is updated");
             } else {
