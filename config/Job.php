@@ -50,17 +50,19 @@ class Job
     {
 
 
-        // // Gör om eventuella ' eller " till meningslösa tecken.
-        // $courseId = $this->db->real_escape_string($courseId);
-        // $name = $this->db->real_escape_string($name);
-        // $prog = $this->db->real_escape_string($prog);
-        // $syllabus = $this->db->real_escape_string($syllabus);
+        // Gör om eventuella ' eller " till meningslösa tecken.
+        $workplace = $this->db->real_escape_string($workplace);
+        $title = $this->db->real_escape_string($title);
+        $description = $this->db->real_escape_string($description);
+        $start = $this->db->real_escape_string($start);
+        $end = $this->db->real_escape_string($end);
 
-        // // Gör om eventuell html-kod till tecken
-        // $courseId = htmlspecialchars($courseId);
-        // $name = htmlspecialchars($name);
-        // $prog = htmlspecialchars($prog);
-        // $syllabus = htmlspecialchars($syllabus);
+        // Gör om eventuell html-kod till tecken
+        $workplace = htmlspecialchars($workplace);
+        $title = htmlspecialchars($title);
+        $description = htmlspecialchars($description);
+        $start = htmlspecialchars($start);
+        $end = htmlspecialchars($end);
 
 
         // Lägg till jobb
@@ -98,16 +100,18 @@ class Job
         // Om kursen finns, redigera. Returnera false om kursen inte finns
         if (mysqli_num_rows($result)) {
             // Gör om eventuella ' eller " till meningslösa tecken.
-            // $courseId = $this->db->real_escape_string($courseId);
-            // $name = $this->db->real_escape_string($name);
-            // $prog = $this->db->real_escape_string($prog);
-            // $syllabus = $this->db->real_escape_string($syllabus);
+            $workplace = $this->db->real_escape_string($workplace);
+            $title = $this->db->real_escape_string($title);
+            $description = $this->db->real_escape_string($description);
+            $start = $this->db->real_escape_string($start);
+            $end = $this->db->real_escape_string($end);
 
-            // // Gör om eventuell html-kod till tecken
-            // $courseId = htmlspecialchars($courseId);
-            // $name = htmlspecialchars($name);
-            // $prog = htmlspecialchars($prog);
-            // $syllabus = htmlspecialchars($syllabus);
+            // Gör om eventuell html-kod till tecken
+            $workplace = htmlspecialchars($workplace);
+            $title = htmlspecialchars($title);
+            $description = htmlspecialchars($description);
+            $start = htmlspecialchars($start);
+            $end = htmlspecialchars($end);
 
             // Uppdatera kurs
             $sql = "UPDATE Jobs SET workplace='$workplace', title='$title', description='$description', start_date='$start', end_date='$end' WHERE id=$id;";

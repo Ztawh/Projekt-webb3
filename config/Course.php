@@ -57,17 +57,19 @@ class Course
             return false;
         } else {
 
-            // // Gör om eventuella ' eller " till meningslösa tecken.
-            // $courseId = $this->db->real_escape_string($courseId);
-            // $name = $this->db->real_escape_string($name);
-            // $prog = $this->db->real_escape_string($prog);
-            // $syllabus = $this->db->real_escape_string($syllabus);
+            // Gör om eventuella ' eller " till meningslösa tecken.
+            $school = $this->db->real_escape_string($school);
+            $courseId = $this->db->real_escape_string($courseId);
+            $name = $this->db->real_escape_string($name);
+            $start = $this->db->real_escape_string($start);
+            $end = $this->db->real_escape_string($end);
 
-            // // Gör om eventuell html-kod till tecken
-            // $courseId = htmlspecialchars($courseId);
-            // $name = htmlspecialchars($name);
-            // $prog = htmlspecialchars($prog);
-            // $syllabus = htmlspecialchars($syllabus);
+            // Gör om eventuell html-kod till tecken
+            $school = htmlspecialchars($school);
+            $courseId = htmlspecialchars($courseId);
+            $name = htmlspecialchars($name);
+            $start = htmlspecialchars($start);
+            $end = htmlspecialchars($end);
 
             // Lägg till kurs
             $sql = "INSERT INTO Courses (school, course_id, name, start_date, end_date) VALUES ('$school', '$courseId', '$name', '$start', '$end');";
@@ -114,6 +116,20 @@ class Course
             // $name = htmlspecialchars($name);
             // $prog = htmlspecialchars($prog);
             // $syllabus = htmlspecialchars($syllabus);
+
+            // Gör om eventuella ' eller " till meningslösa tecken.
+            $school = $this->db->real_escape_string($school);
+            $courseId = $this->db->real_escape_string($courseId);
+            $name = $this->db->real_escape_string($name);
+            $start = $this->db->real_escape_string($start);
+            $end = $this->db->real_escape_string($end);
+
+            // Gör om eventuell html-kod till tecken 
+            $school = htmlspecialchars($school);
+            $courseId = htmlspecialchars($courseId);
+            $name = htmlspecialchars($name);
+            $start = htmlspecialchars($start);
+            $end = htmlspecialchars($end);
 
             // Uppdatera kurs
             $sql = "UPDATE Courses SET school='$school', course_id='$courseId', name='$name', start_date='$start', end_date='$end' WHERE id=$id;";

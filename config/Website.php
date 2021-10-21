@@ -58,16 +58,14 @@ class Website
         } else {
 
             // Gör om eventuella ' eller " till meningslösa tecken.
-            // $courseId = $this->db->real_escape_string($courseId);
-            // $name = $this->db->real_escape_string($name);
-            // $prog = $this->db->real_escape_string($prog);
-            // $syllabus = $this->db->real_escape_string($syllabus);
+            $title = $this->db->real_escape_string($title);
+            $url = $this->db->real_escape_string($url);
+            $description = $this->db->real_escape_string($description);
 
-            // // Gör om eventuell html-kod till tecken
-            // $courseId = htmlspecialchars($courseId);
-            // $name = htmlspecialchars($name);
-            // $prog = htmlspecialchars($prog);
-            // $syllabus = htmlspecialchars($syllabus);
+            // Gör om eventuell html-kod till tecken
+            $title = htmlspecialchars($title);
+            $url = htmlspecialchars($url);
+            $description = htmlspecialchars($description);
 
             // Lägg till webbsida
             $sql = "INSERT INTO Websites (title, url, description) VALUES ('$title', '$url', '$description');";
@@ -104,16 +102,14 @@ class Website
         // Om kursen finns, redigera. Returnera false om kursen inte finns
         if (mysqli_num_rows($result)) {
             // Gör om eventuella ' eller " till meningslösa tecken.
-            // $courseId = $this->db->real_escape_string($courseId);
-            // $name = $this->db->real_escape_string($name);
-            // $prog = $this->db->real_escape_string($prog);
-            // $syllabus = $this->db->real_escape_string($syllabus);
+            $title = $this->db->real_escape_string($title);
+            $url = $this->db->real_escape_string($url);
+            $description = $this->db->real_escape_string($description);
 
-            // // Gör om eventuell html-kod till tecken
-            // $courseId = htmlspecialchars($courseId);
-            // $name = htmlspecialchars($name);
-            // $prog = htmlspecialchars($prog);
-            // $syllabus = htmlspecialchars($syllabus);
+            // Gör om eventuell html-kod till tecken
+            $title = htmlspecialchars($title);
+            $url = htmlspecialchars($url);
+            $description = htmlspecialchars($description);
 
             // Uppdatera webbsida
             $sql = "UPDATE Websites SET title='$title', url='$url', description='$description' WHERE id=$id;";
