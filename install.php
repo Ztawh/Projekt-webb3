@@ -29,8 +29,8 @@ CREATE TABLE Courses(
     school VARCHAR(100),
     course_id VARCHAR(8),
     name VARCHAR(100),
-    start_date DATE,
-    end_date DATE
+    start_date VARCHAR(10),
+    end_date VARCHAR(10)
 );
 
 DROP TABLE IF EXISTS Jobs;
@@ -39,8 +39,8 @@ CREATE TABLE Jobs(
     workplace VARCHAR(100),
     title VARCHAR(100),
     description VARCHAR(1000),
-    start_date DATE,
-    end_date DATE
+    start_date VARCHAR(10),
+    end_date VARCHAR(10)
 );
 
 DROP TABLE IF EXISTS Websites;
