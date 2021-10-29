@@ -1,6 +1,4 @@
 <?php
-
-
 /* Anslut till databasen */
 if ($_SERVER["SERVER_NAME"] == "localhost") {
     $db = new mysqli("localhost", "root", "", "ProjectWebb3DB");
@@ -14,15 +12,7 @@ if ($_SERVER["SERVER_NAME"] == "localhost") {
     }
 }
 
-// // Skapar databas
-// $sql = "CREATE DATABASE ProjectWebb3DB";
-// if ($db->query($sql) === TRUE) {
-//     echo "Database created successfully";
-// } else {
-//     echo "Error creating database: " . $db->error;
-// }
-
-
+// Skapa tabeller
 $sql = "DROP TABLE IF EXISTS Courses;
 CREATE TABLE Courses(
     id INT(11) PRIMARY KEY AUTO_INCREMENT,

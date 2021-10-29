@@ -105,18 +105,6 @@ class Course
 
         // Om kursen finns, redigera. Returnera false om kursen inte finns
         if (mysqli_num_rows($result)) {
-            // // Gör om eventuella ' eller " till meningslösa tecken.
-            // $courseId = $this->db->real_escape_string($courseId);
-            // $name = $this->db->real_escape_string($name);
-            // $prog = $this->db->real_escape_string($prog);
-            // $syllabus = $this->db->real_escape_string($syllabus);
-
-            // // Gör om eventuell html-kod till tecken
-            // $courseId = htmlspecialchars($courseId);
-            // $name = htmlspecialchars($name);
-            // $prog = htmlspecialchars($prog);
-            // $syllabus = htmlspecialchars($syllabus);
-
             // Gör om eventuella ' eller " till meningslösa tecken.
             $school = $this->db->real_escape_string($school);
             $courseId = $this->db->real_escape_string($courseId);

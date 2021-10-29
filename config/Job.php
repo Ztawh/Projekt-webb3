@@ -48,8 +48,6 @@ class Job
     // Lägg till ett jobb
     public function addJob($workplace, $title, $description, $start, $end)
     {
-
-
         // Gör om eventuella ' eller " till meningslösa tecken.
         $workplace = $this->db->real_escape_string($workplace);
         $title = $this->db->real_escape_string($title);
@@ -64,23 +62,21 @@ class Job
         $start = htmlspecialchars($start);
         $end = htmlspecialchars($end);
 
-
         // Lägg till jobb
         $sql = "INSERT INTO Jobs (workplace, title, description, start_date, end_date) VALUES ('$workplace', '$title', '$description', '$start', '$end');";
         $result = $this->db->query($sql);
-
 
         return $result;
     }
 
     // Ta bort ett jobb
-    public function deleteJob($id) // FORTSÄTT HÄÄÄÄÄÄÄÄRRRR
+    public function deleteJob($id)
     {
         // Kollar om ett jobb med detta id finns
         $sql = "SELECT * FROM Jobs WHERE id='$id';";
         $result = $this->db->query($sql);
 
-        // Om kursen finns, radera. Returnera false om kursen inte finns
+        // Om jobb finns, radera. Returnera false om jobbet inte finns
         if (mysqli_num_rows($result)) {
             $sql = "DELETE FROM Jobs WHERE id=$id;";
             $result = $this->db->query($sql);
@@ -93,11 +89,11 @@ class Job
     // Redigera ett jobb
     public function editJob($id, $workplace, $title, $description, $start, $end)
     {
-        // Kollar om en kurs med detta id finns
+        // Kollar om ett jobb med detta id finns
         $sql = "SELECT * FROM Jobs WHERE id=$id;";
         $result = $this->db->query($sql);
 
-        // Om kursen finns, redigera. Returnera false om kursen inte finns
+        // Om jobbet finns, redigera. Returnera false om jobbet inte finns
         if (mysqli_num_rows($result)) {
             // Gör om eventuella ' eller " till meningslösa tecken.
             $workplace = $this->db->real_escape_string($workplace);
@@ -113,7 +109,7 @@ class Job
             $start = htmlspecialchars($start);
             $end = htmlspecialchars($end);
 
-            // Uppdatera kurs
+            // Uppdatera jobb
             $sql = "UPDATE Jobs SET workplace='$workplace', title='$title', description='$description', start_date='$start', end_date='$end' WHERE id=$id;";
             $result = $this->db->query($sql);
             return $result;

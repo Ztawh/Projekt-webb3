@@ -1,6 +1,5 @@
 
 <?php
-//{"title": "Webbplatsis", "url": "en url till", "description": "Massor med text", "thumbnail": "bild"}
 // Inkluderar klass
 require "config/Website.php";
 
@@ -28,7 +27,6 @@ if (isset($_GET['id'])) {
 
 // Skapa instans av Website-klassen
 $webObj = new Website();
-
 
 switch ($method) {
     case 'GET':

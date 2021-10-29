@@ -71,7 +71,6 @@ class Website
             $sql = "INSERT INTO Websites (title, url, description) VALUES ('$title', '$url', '$description');";
             $result = $this->db->query($sql);
         }
-
         return $result;
     }
 
@@ -99,7 +98,7 @@ class Website
         $sql = "SELECT * FROM Websites WHERE id=$id;";
         $result = $this->db->query($sql);
 
-        // Om kursen finns, redigera. Returnera false om kursen inte finns
+        // Om webbsida finns, redigera. Returnera false om webbsidan inte finns
         if (mysqli_num_rows($result)) {
             // Gör om eventuella ' eller " till meningslösa tecken.
             $title = $this->db->real_escape_string($title);

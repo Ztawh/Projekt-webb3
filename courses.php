@@ -1,6 +1,5 @@
 
 <?php
-//{"course_id": "DT152G", "name": "Webbdesign för CMS", "progression": "B", "course_syllabus": "länk"}
 // Inkluderar klass
 require "config/Course.php";
 

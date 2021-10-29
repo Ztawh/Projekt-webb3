@@ -1,6 +1,5 @@
 
 <?php
-//{"workplace": "Kappahl", "title": "nu redigerar", "description": "Jobbat på Kappahl Norrtälje City i en miljon år", "start_date": "2012-11-00", "end_date": "2222-12-22"}
 // Inkluderar klass
 require "config/Job.php";
 
