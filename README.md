@@ -17,6 +17,7 @@ Sidan har tre huvudsakliga endpoints. En för kurser, en för anställningar och
 
 Switchsatsen anropar lämplig metod i lämplig klass och returnerar resultatet till användaren.
 
+### Endpoints
 * Hämta kurser: [länk](https://studenter.miun.se/~amhv2000/writeable/projekt-webbtjanst/courses.php)
 * Hämta jobb: [länk](https://studenter.miun.se/~amhv2000/writeable/projekt-webbtjanst/jobs.php)
 * Hämta webbsidor: [länk](https://studenter.miun.se/~amhv2000/writeable/projekt-webbtjanst/websites.php)
