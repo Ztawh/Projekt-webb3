@@ -1,6 +1,8 @@
-# Projekt - Webbutveckling III
+# Projekt - webbtjänst
+Detta är en del av projektearbetet i kursen Webbutveckling III DT173G.
+Uppgiften går ut på att skapa en webbtjänst som har stöd för CRUD där endast en inloggad användare på admin-sidan kan hantera innehållet. Sidan ska sen presenteras på ett snyggt sätt på en sida som endast läser från webbtjänsten.
 
--
+Dett är webbtjänsten för projektet. 
 
 ## Install
 
@@ -8,35 +10,19 @@ Webbtjänsten har en install-fil som återställer databasen genom att kolla om 
 
 Lösen är borttaget från denna fil då jag inte ville lägga upp det på github.
 
-## Course.php
+## PHP
+Sidan är skapad i PHP och kollar upp till en databas för att hämta, lägga till, ta bort eller redigera innehållet. 
 
-Denna fil innehåller en klass som sköter uppkopplingen till databasen samt hantering av kurser vid olika requests (GET, PUT, POST, DELETE). Klassens konstruktor kopplar upp till databasen med mysqli.
+Sidan har tre huvudsakliga endpoints. En för kurser, en för anställningar och en för webbsidor. Sen går det att skicka ett ID med URL:en med. Varje endpoint har en switch-sats med olika cases beroende på vilken metod som används (GET, PUT, POST, DELETE) och om det finns ett ID medskickat eller inte.
 
-Metoderna i klassen är:
+Switchsatsen anropar lämplig metod i lämplig klass och returnerar resultatet till användaren.
 
-* getCourses(). Denna returnerar alla kurser från databasen.
-* getOneCourse(id). Denna returnerar en kurs med ett visst id.
-* addCourse(courseId, name, prog, syllabus). Denna lägger till en ny kurs med de angivna värdena.
-* deleteCourse(id). Denna tar bort en kurs med ett visst id.
-* editCourse(id, courseId, name, prog, syllabus). Denna redigerar en kurs med ett visst id. Den uppdaterar med de angivna värdena.
+## Vill du klona?
+Skriv i din terminal kommandot:
+git clone https://github.com/Ztawh/Projekt-webb3.git
 
-## rest.php
+Men tänkt på att inte köra install-filen om du inte vill blåsa ur hela databasen.
 
-Denna fil innehåller först en rad olika headers med inställningar för webbtjänsten. Inställningarna är att webbtjänsten ska gå att komma åt från andra domäner, att data skickas i JSON-format, att metoderna GET, PUT, POST och DELETE tillåts m.m.
-
-En instans av klassen skapas.
-
-Sen följer en switch-sats med olika cases för de olika metoderna GET, PUT, POST eller DELETE. 
-
-* case GET - Vid ett GET-anrop utan medskickat id anropas metoden getCourses. Om klienten har skickat med ett id anropas metoden getOneCOurse istället. Om det lyckades skickas HTTP response status 200. Om det inte lyckades skickas ett felmeddelande. Resultatet skrivs sen ut.
-* case POST - JSON-datan som är medskickad görs om till ett objekt. Metoden addCourse anropas sedan. Om den lyckades lägga till kursen skickas HTTP response status 200, om det inte lyckades skickas HTTP response status 503. Ett meddelande om resultatet skrivs sen ut.
-* case PUT - Om anropet inte har ett id medskickat kommer HTTP response status vara 400. Om id är medskickat kommer den datan som är medskickad att hämtas och göras om till ett objekt, sen anropas metoden editCourse där samtliga värden skickas med. Om den kunde uppdatera kursen skickas HTTP response status 200. Om den inte lyckas skickas HTTP response status 503. Ett meddelande om resultatet skrivs sen ut.
-* case DELETE- Om det inte är ett id medskickat skickas HTTP response status 400. Om det är ett id med skickat anropas metoden deleteCourse där id skickas med. Metoden raderar ur databasen på plats id. Ett meddelande om resultatet skrivs sen ut.
-
-## Installera
-Klona repot
-* git clone
-
-### Webbtjänsten
-<!--Länk till webbtjänsten (get allt): [länk](https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php)
-Länk till webbtjänsten (get id=10): [länk](https://studenter.miun.se/~amhv2000/writeable/webbtjanst/rest.php?id=10)-->
+### Länkar
+Länk till admin-sidan: [länk](https://studenter.miun.se/~amhv2000/writeable/projekt-admin/index.php)
+Länk till webbtjänsten:[länk](https://studenter.miun.se/~amhv2000/writeable/pub-webbklient-projekt/)
